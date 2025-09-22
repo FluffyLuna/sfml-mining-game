@@ -5,8 +5,8 @@ project(SFMLMiningGame)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Find SFML 3.0.1
-find_package(SFML 3.0.1 COMPONENTS graphics window system audio REQUIRED)
+# Find SFML 2.6 or later (compatible with available system version)
+find_package(SFML 2.6 COMPONENTS graphics window system audio REQUIRED)
 
 # Add include directory
 include_directories(${CMAKE_SOURCE_DIR}/include)
@@ -31,6 +31,6 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 
 # Add compile options for better warnings and debugging
 target_compile_options(${PROJECT_NAME} PRIVATE
-    $<$<COMPILER_ID:GNU,Clang>:-Wall -Wextra -Wpedantic>
-    $<$<COMPILER_ID:MSVC>:/W4>
+    $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Wall -Wextra -Wpedantic>
+    $<$<CXX_COMPILER_ID:MSVC>:/W4>
 )

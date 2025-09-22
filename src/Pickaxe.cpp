@@ -68,7 +68,7 @@ bool Pickaxe::canUpgrade() const {
  * that encourage players to mine different ore types.
  */
 std::vector<UpgradeRecipe> Pickaxe::getUpgradeRecipe() const {
-    return getRecipeForUpgrade(m_tier, getNextTier(m_tier));
+    return getRecipeForUpgrade(m_tier, PickaxeUtils::getNextTier(m_tier));
 }
 
 /**
@@ -121,7 +121,7 @@ bool Pickaxe::attemptUpgrade(std::map<OreType, int>& availableOres) {
     }
     
     // Upgrade to next tier
-    m_tier = getNextTier(m_tier);
+    m_tier = PickaxeUtils::getNextTier(m_tier);
     initializeProperties();
     
     return true;  // Upgrade successful
@@ -147,6 +147,7 @@ std::vector<PickaxeTier> Pickaxe::getAllTiers() {
  * sink that drives the mining gameplay loop.
  */
 std::vector<UpgradeRecipe> Pickaxe::getRecipeForUpgrade(PickaxeTier fromTier, PickaxeTier toTier) {
+    (void)fromTier; // Suppress unused parameter warning
     std::vector<UpgradeRecipe> recipe;
     
     switch (toTier) {

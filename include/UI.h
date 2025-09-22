@@ -138,9 +138,10 @@ public:
     void toggleShop();
 
 private:
-    // UI State management
+    // Game state management
     UIState m_currentState;                 ///< Current active UI screen
     UIState m_previousState;                ///< Previous state for back navigation
+    const Player* m_currentPlayer;          ///< Reference to current player for data access
     
     // Font and text rendering
     sf::Font m_font;                        ///< Main UI font
@@ -173,9 +174,8 @@ private:
      * - Quick action buttons
      * 
      * @param window The window to render to
-     * @param player Player data for display
      */
-    void renderGameHUD(sf::RenderWindow& window, const Player& player);
+    void renderGameHUD(sf::RenderWindow& window);
     
     /**
      * @brief Render the detailed inventory screen
@@ -187,9 +187,8 @@ private:
      * - Visual ore representations
      * 
      * @param window The window to render to
-     * @param inventory Inventory data to display
      */
-    void renderInventoryScreen(sf::RenderWindow& window, const Inventory& inventory);
+    void renderInventoryScreen(sf::RenderWindow& window);
     
     /**
      * @brief Render the pickaxe upgrade shop
@@ -201,9 +200,8 @@ private:
      * - Insufficient funds feedback
      * 
      * @param window The window to render to
-     * @param player Player data for shop operations
      */
-    void renderShopScreen(sf::RenderWindow& window, const Player& player);
+    void renderShopScreen(sf::RenderWindow& window);
     
     /**
      * @brief Render pause menu overlay
@@ -290,4 +288,14 @@ private:
      * @param player Player to perform transaction for
      */
     void attemptPurchase(Player& player);
+    
+    /**
+     * @brief Update game HUD data with current player information
+     */
+    void updateGameHUDData(const Player& player);
+    
+    /**
+     * @brief Handle button click events
+     */
+    void handleButtonClicks(const sf::Vector2f& clickPos, Player& player);
 };

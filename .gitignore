@@ -1,0 +1,28 @@
+# Build directories
+build/
+cmake-build-*/
+
+# Generated files
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+
+# IDE files
+.vscode/
+.idea/
+*.vcxproj*
+*.sln
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Log files
+*.log

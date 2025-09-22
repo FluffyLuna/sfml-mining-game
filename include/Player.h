@@ -76,12 +76,14 @@ public:
      * @return Reference to the current pickaxe
      */
     Pickaxe& getPickaxe() { return *m_pickaxe; }
+    const Pickaxe& getPickaxe() const { return *m_pickaxe; }
     
     /**
      * @brief Get player's inventory for ore management
      * @return Reference to the player's inventory
      */
     Inventory& getInventory() { return *m_inventory; }
+    const Inventory& getInventory() const { return *m_inventory; }
 
 private:
     // Visual representation

@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <random>
+#include <memory>
 #include "Ore.h"
 
 /**
