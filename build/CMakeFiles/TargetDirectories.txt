@@ -1,0 +1,3 @@
+/home/runner/work/sfml-mining-game/sfml-mining-game/build/CMakeFiles/mining_game.dir
+/home/runner/work/sfml-mining-game/sfml-mining-game/build/CMakeFiles/edit_cache.dir
+/home/runner/work/sfml-mining-game/sfml-mining-game/build/CMakeFiles/rebuild_cache.dir
